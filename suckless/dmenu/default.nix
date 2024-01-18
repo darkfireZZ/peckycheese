@@ -16,8 +16,8 @@ nixpkgs.stdenv.mkDerivation rec {
     sha256 = "sha256-1NTKd7WRQPJyJy21N+BbuRpZFPVoAmUtxX5hp3PUN5I=";
   };
 
-  config = ./config.def.h;
-  shared_config = ./shared_config.h;
+  config = ./config.h;
+  sharedConfig = ../shared_config.h;
 
   buildInputs = with nixpkgs; [
     xorg.libX11
@@ -30,8 +30,8 @@ nixpkgs.stdenv.mkDerivation rec {
   postPatch = ''
     sed -ri -e 's!\<(dmenu|dmenu_path|stest)\>!'"$out/bin"'/&!g' dmenu_run
     sed -ri -e 's!\<stest\>!'"$out/bin"'/&!g' dmenu_path
-    cp $shared_config ./shared_config.h
-    cp $config ./config.def.h
+    cp $sharedConfig ./shared_config.h
+    cp $config ./config.h
   '';
 
   preConfigure = ''
