@@ -1,4 +1,5 @@
 
+/* font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html */
 static const char font[] =
 	"DejaVuSansM Nerd Font Mono:pixelsize=22:antialias=true:autohint=true";
 
